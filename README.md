@@ -1,8 +1,19 @@
 #  RSA-CTF-Decrypter
+## what is RSA
+RSA is a type of public-key cryptography used to securely encrypt and decrypt data. It works by using two keys:
 
+  - Public key: Used to encrypt messages. It can be shared with anyone.
+
+  - Private key: Used to decrypt messages. It is kept secret by the owner.
+
+The security of RSA relies on the difficulty of factoring large numbers into primes. The keys are generated from two large prime numbers. Because it’s hard to factor their product, it’s practically impossible for others to derive the private key from the public key.
+
+RSA is widely used for secure communication, digital signatures, and protecting sensitive information online.
+
+## Project overview:
 A Python tool to **decrypt RSA-encrypted messages** commonly found in CTF (Capture The Flag) challenges. Supports both **manual input** of primes `p` and `q`, or **automatic factoring** of small `n` values using `sympy`.
 
-> For large `n`, you are encouraged to use [FactorDB](https://factordb.com) or [Integer factorization calculator][(https://www.alpertron.com) for factorization.
+> For large `n`, you are encouraged to use [FactorDB](https://factordb.com) or [Integer factorization calculator][(https://www.alpertron.com.ar/ECM.HTM) for factorization.
 
 ---
 
@@ -18,30 +29,15 @@ A Python tool to **decrypt RSA-encrypted messages** commonly found in CTF (Captu
 
 ## 📂 Project Structure
 
+```
 RSA-CTF-Decrypter/
 ├── decrypt_rsa.py # Main decryption script
 ├── README.md # This file
-
+```
 ---
 
-## Usage
-
-- python3 decrypt_rsa.py
-
-- You will be prompted to input:
-
-- Ciphertext (as an integer)
-
-- Modulus n
-
-- Public exponent e
-  
--  Either:
-    - Your own values of p and q, or
-    - Let the script auto-factor n (for small values)
-
 ## Example
-
+```
 ┌[ahmed][17:22][~]
 └$ python3 decrypt_rsa.py
 Enter the ciphertext:
@@ -63,10 +59,11 @@ q = 53
 Calculated φ(n): 3120
 Calculated private exponent d: 2753
 Decrypted Message: hi
+```
 
 ## ⚠️ Notes
 sympy.ntheory.factorint() only works on small n. If n is large (as in real RSA), factoring is impractical.
 For real RSA CTFs, use FactorDB to obtain p and q.
 
-✍️ Author
-Created by [Ahmad OMAR DWERIJ] for educational and CTF use.
+## Author
+Created by Ahmad OMAR DWERIJ for educational and CTF use.
